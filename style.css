@@ -5,27 +5,66 @@ body {
     line-height: 1.6;
   }
   
+  @keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
   .hero {
-    background: linear-gradient(135deg, #ffc0cb, #add8e6);
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+    color: white;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    color: white;
+    text-align: center;  
   }
-  
   .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1.5s ease-out;
   }
   
   .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    color: #f0f8ff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    margin-bottom: 2rem;
+    animation: fadeInUp 1.5s ease-out;
+  }
+
+  /* ふわっと登場アニメーション */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .scroll-button {
     display: inline-block;
     padding: 10px 20px;
@@ -43,16 +82,79 @@ body {
   }
   
   section {
-    padding: 60px 20px;
+    padding: 100px 20px;
     text-align: center;
   }
   
-  section.gray {
-    background: #f5f5f5;
+  #about {
+    padding: 200px 20px; /* さらに広くしたい場合 */
+    text-align: center;
+  }
+
+  #future {
+    padding: 200px 20px; /* さらに広くしたい場合 */
+    text-align: center;
   }
   
-  section.pink {
-    background: #ffe4e1;
+  section.member {
+    background: url('member.jpg') no-repeat center center/cover;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .member h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: #f0f8ff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    margin-bottom: 2rem;
+    animation: fadeInUp 1.5s ease-out;
+  }
+  
+  .schedule {
+    padding: 110px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .schedule h2 {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+  
+  .schedule1-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .schedule1 {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .schedule1 img {
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .schedule1 h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .schedule1 p {
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+  
+  section.contact {
+    background: white;
   }
   
   .card {
@@ -113,6 +215,227 @@ body {
       text-align: center;
     }
   }
-  section.blue {
-    background: #e0f7fa; /* 超爽やか！ */
+
+  section.blue{
+    background: linear-gradient(
+      to bottom right,
+      rgba(0, 123, 255, 0.6),
+      rgba(0, 212, 255, 0.6)
+    );
+    backdrop-filter: blur(8px); /* 背景ぼかし（透明感UP） */
+    -webkit-backdrop-filter: blur(8px); /* Safari対応 */
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
   }
+  
+  section.about {
+    background: url('namae.png') no-repeat center center/cover;
+    color: white; /* 背景が写真なので、文字色は白にすると見やすい */
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  section.about h2,
+  section.about p {
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7); /* 文字が読めるように影をつける */
+  }
+  
+  section.future {
+    background: url('kesiki.png') no-repeat center center/cover;
+    color: white; /* 背景が写真なので、文字色は白にすると見やすい */
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  section.future h2,
+  section.future p {
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7); /* 文字が読めるように影をつける */
+  }
+/* 全体背景 */
+body {
+  background-color: #f5f7fa; /* やさしい薄グレー */
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* フェードイン登場アニメ */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* アカウント情報エリア（横並び） */
+.account-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  gap: 20px;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+/* アカウント画像 */
+.account-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* スクロールエリア */
+.scroll-area {
+  overflow: hidden;
+  width: 100%;
+  padding: 30px 0;
+}
+
+/* スクロールコンテナ */
+.scroll-container {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+/* ホバーでアニメ停止 */
+.scroll-container:hover {
+  animation-play-state: paused;
+}
+
+/* 投稿画像 */
+.scroll-container img {
+  width: 220px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+/* ホバーでズーム＋影強調 */
+.scroll-container a:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 横スクロールアニメーション */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* レスポンシブ対応（スマホ画面） */
+@media (max-width: 768px) {
+  .scroll-container img {
+    width: 200px; /* スマホでは小さめに */
+  }
+  .account-info {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+}
+section.member::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4); /* 黒半透明オーバーレイ */
+  z-index: 0;
+}
+section.member > * {
+  position: relative;
+  z-index: 1;
+}
+section.about::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4); /* 黒半透明オーバーレイ */
+  z-index: 0;
+}
+section.about > * {
+  position: relative;
+  z-index: 1;
+}
+section.future::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4); /* 黒半透明オーバーレイ */
+  z-index: 0;
+}
+section.future > * {
+  position: relative;
+  z-index: 1;
+}
+
+.scroll-container {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+  margin-top: 60px; /* ← ここを追加！ */
+}
+.scroll-x {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-x::-webkit-scrollbar {
+  height: 10px;
+}
+.scroll-x::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.card {
+  min-width: 160px; /* ← 元の220pxから縮小 */
+  max-width: 160px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 0.5em 0 0.3em;
+}
+
+.card p {
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
